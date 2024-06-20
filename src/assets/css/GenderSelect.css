@@ -1,0 +1,25 @@
+/* src/GenderSelect.css */
+.select-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+}
+
+label {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+select {
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+}
+
+p {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #007bff;
+}
