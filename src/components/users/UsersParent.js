@@ -1,6 +1,7 @@
 import React, { useRef, useReducer, useMemo, useCallback } from 'react';
 import UserList from './UserList';
 import CreateUser from './CreateUser';
+import useInputs from '../../hooks/useInputs';
 
 function countActiveUsers(users) {
   console.log('활성 사용자 수를 세는중 ...');
@@ -12,16 +13,12 @@ function UsersParent() {
 
   const { users } = state;
 
-  const { username, email } = state.inputs;
+  const [form, onChange, reset] = useInputs({
+    username: '',
+    email: '',
+  });
 
-  const onChange = useCallback((e) => {
-    const { name, value } = e.target;
-    dispatch({
-      type: 'CHANGE_INPUT',
-      name,
-      value,
-    });
-  }, []);
+  const { username, email } = form;
 
   const nextId = useRef(5);
 
@@ -35,7 +32,8 @@ function UsersParent() {
       },
     });
     nextId.current += 1;
-  }, [username, email]);
+    reset();
+  }, [username, email, reset]);
 
   const onRemove = useCallback((id) => {
     dispatch({
@@ -70,10 +68,6 @@ function UsersParent() {
 export default React.memo(UsersParent);
 
 const initialState = {
-  inputs: {
-    username: '',
-    email: '',
-  },
   users: [
     { id: 1, username: 'jackie', email: 'jackie@abc.com', active: true },
     { id: 2, username: 'michael', email: 'michael@abc.com', active: false },
@@ -85,14 +79,6 @@ const initialState = {
 function reducer(state, action) {
   console.log(state, action);
   switch (action.type) {
-    case 'CHANGE_INPUT':
-      return {
-        ...state,
-        inputs: {
-          ...state.inputs,
-          [action.name]: action.value,
-        },
-      };
     case 'CREATE_USER':
       return {
         inputs: initialState.inputs,
