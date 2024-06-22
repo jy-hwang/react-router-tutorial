@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import UserList from './UserList';
 import CreateUser from './CreateUser';
 
@@ -10,6 +10,7 @@ const Users = () => {
       last_name: 'Dobbs',
       gender: 'Female',
       age: 42,
+      active: true,
     },
     {
       id: 2,
@@ -17,6 +18,7 @@ const Users = () => {
       last_name: 'Eydel',
       gender: 'Male',
       age: 62,
+      active: false,
     },
     {
       id: 3,
@@ -24,6 +26,7 @@ const Users = () => {
       last_name: 'MacLaverty',
       gender: 'Male',
       age: 51,
+      active: false,
     },
     {
       id: 4,
@@ -31,6 +34,7 @@ const Users = () => {
       last_name: 'Sweetmore',
       gender: 'Genderqueer',
       age: 40,
+      active: true,
     },
     {
       id: 5,
@@ -38,6 +42,7 @@ const Users = () => {
       last_name: 'Barstowk',
       gender: 'Female',
       age: 26,
+      active: false,
     },
     {
       id: 6,
@@ -45,14 +50,23 @@ const Users = () => {
       last_name: 'Smitton',
       gender: 'Male',
       age: 27,
+      active: false,
     },
-    { id: 7, first_name: 'Tove', last_name: 'Chue', gender: 'Female', age: 78 },
+    {
+      id: 7,
+      first_name: 'Tove',
+      last_name: 'Chue',
+      gender: 'Female',
+      age: 78,
+      active: false,
+    },
     {
       id: 8,
       first_name: 'Pren',
       last_name: 'Blakeley',
       gender: 'Male',
       age: 39,
+      active: true,
     },
     {
       id: 9,
@@ -60,6 +74,7 @@ const Users = () => {
       last_name: 'Staton',
       gender: 'Female',
       age: 77,
+      active: false,
     },
     {
       id: 10,
@@ -67,6 +82,7 @@ const Users = () => {
       last_name: 'Trelease',
       gender: 'Male',
       age: 78,
+      active: false,
     },
     {
       id: 11,
@@ -74,6 +90,7 @@ const Users = () => {
       last_name: 'Spanton',
       gender: 'Bigender',
       age: 28,
+      active: false,
     },
     {
       id: 12,
@@ -81,6 +98,7 @@ const Users = () => {
       last_name: 'Coop',
       gender: 'Female',
       age: 24,
+      active: true,
     },
     {
       id: 13,
@@ -88,6 +106,7 @@ const Users = () => {
       last_name: 'Guillain',
       gender: 'Male',
       age: 29,
+      active: false,
     },
     {
       id: 14,
@@ -95,6 +114,7 @@ const Users = () => {
       last_name: 'Hornung',
       gender: 'Male',
       age: 50,
+      active: false,
     },
     {
       id: 15,
@@ -102,6 +122,7 @@ const Users = () => {
       last_name: 'Godlee',
       gender: 'Female',
       age: 22,
+      active: true,
     },
     {
       id: 16,
@@ -109,6 +130,7 @@ const Users = () => {
       last_name: 'Garmston',
       gender: 'Female',
       age: 29,
+      active: false,
     },
     {
       id: 17,
@@ -116,6 +138,7 @@ const Users = () => {
       last_name: 'Petasch',
       gender: 'Female',
       age: 48,
+      active: false,
     },
     {
       id: 18,
@@ -123,6 +146,7 @@ const Users = () => {
       last_name: 'Emeney',
       gender: 'Female',
       age: 77,
+      active: false,
     },
     {
       id: 19,
@@ -130,6 +154,7 @@ const Users = () => {
       last_name: 'Simester',
       gender: 'Female',
       age: 44,
+      active: true,
     },
     {
       id: 20,
@@ -137,6 +162,7 @@ const Users = () => {
       last_name: 'Carrel',
       gender: 'Female',
       age: 45,
+      active: false,
     },
     {
       id: 21,
@@ -144,6 +170,7 @@ const Users = () => {
       last_name: 'Sautter',
       gender: 'Male',
       age: 60,
+      active: true,
     },
     {
       id: 22,
@@ -151,6 +178,7 @@ const Users = () => {
       last_name: 'Coughtrey',
       gender: 'Genderfluid',
       age: 21,
+      active: false,
     },
     {
       id: 23,
@@ -158,6 +186,7 @@ const Users = () => {
       last_name: 'Gelsthorpe',
       gender: 'Male',
       age: 74,
+      active: true,
     },
     {
       id: 24,
@@ -165,6 +194,7 @@ const Users = () => {
       last_name: 'Mulvin',
       gender: 'Female',
       age: 69,
+      active: true,
     },
     {
       id: 25,
@@ -172,6 +202,7 @@ const Users = () => {
       last_name: 'Geach',
       gender: 'Male',
       age: 61,
+      active: false,
     },
     {
       id: 26,
@@ -179,6 +210,7 @@ const Users = () => {
       last_name: 'Kinver',
       gender: 'Female',
       age: 34,
+      active: true,
     },
     {
       id: 27,
@@ -186,6 +218,7 @@ const Users = () => {
       last_name: 'Scough',
       gender: 'Female',
       age: 38,
+      active: true,
     },
     {
       id: 28,
@@ -193,6 +226,7 @@ const Users = () => {
       last_name: 'Aymeric',
       gender: 'Male',
       age: 67,
+      active: false,
     },
     {
       id: 29,
@@ -200,6 +234,7 @@ const Users = () => {
       last_name: 'Antonnikov',
       gender: 'Male',
       age: 37,
+      active: true,
     },
     {
       id: 30,
@@ -207,6 +242,7 @@ const Users = () => {
       last_name: 'Slyne',
       gender: 'Male',
       age: 76,
+      active: true,
     },
   ]);
 
@@ -248,7 +284,8 @@ const Users = () => {
       gender: gender,
       //...inputs
     };
-    setUsers([...users, user]);
+    //setUsers([...users, user]);
+    setUsers(users.concat(user));
     setInputs({ first_name: '', last_name: '', age: '', gender: '' });
     //users.push({
     //console.log(nextId.current);
@@ -256,6 +293,18 @@ const Users = () => {
 
     setResetGenderSelect(true);
     setTimeout(() => setResetGenderSelect(false), 0); // Reset the reset state after a moment
+  };
+
+  const onRemove = (id) => {
+    setUsers(users.filter((user) => user.id !== id));
+  };
+
+  const onToggle = (id) => {
+    setUsers(
+      users.map((user) =>
+        user.id === id ? { ...user, active: !user.active } : user,
+      ),
+    );
   };
 
   return (
@@ -271,7 +320,7 @@ const Users = () => {
         setGender={handleGenderChange}
       />
 
-      <UserList users={users} />
+      <UserList users={users} onRemove={onRemove} onToggle={onToggle} />
     </>
   );
 };

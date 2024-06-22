@@ -5,8 +5,9 @@ import Home from './Home';
 import About from './About';
 import Profile from './Profile';
 import InputSample from './InputSample';
-import Users from './Users';
+import Users from './users(not_use)/Users';
 import ReRendering from './ReRendering';
+import UsersParent from './users/UsersParent';
 
 const Main = () => {
   return (

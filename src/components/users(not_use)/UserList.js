@@ -1,19 +1,30 @@
-import React, { useRef, useState } from 'react';
-import CreateUser from './CreateUser';
+import React, { useEffect } from 'react';
 
-function User({ user }) {
-  return (
-    <div>
-      <h1>
-        {user.first_name} {user.last_name}
-      </h1>
-      <p>{user.gender}</p>
-      <p>{user.age}</p>
-    </div>
-  );
-}
+const UserList = ({ users, onRemove, onToggle }) => {
+  /*
+  useEffect(() => {
+    console.log('컴포넌트가 화면에 나타남');
+    // props -> state
+    // REST API
+    // D3 Video.js
+    // setInterval, setTimeout
+    return () => {
+      // clearInterval, clearTimeout
+      // 라이브러리 인스턴스 제거
+      console.log('컴포넌트가 화면에서 사라짐');
+    };
+  }, []);
+*/
 
-const UserList = ({ users }) => {
+  useEffect(() => {
+    console.log('users 값이 설정됨');
+    console.log(users);
+    return () => {
+      console.log('users 값이 바뀌기전');
+      console.log(users);
+    };
+  }, [users]);
+
   return (
     <div className="overflow-x-auto">
       {/* <div>
@@ -49,16 +60,30 @@ const UserList = ({ users }) => {
               gender
             </th>
             <th className="text-left py-3 px-4 font-semibold text-sm">age</th>
+            <th className="text-left py-3 px-4 font-semibold text-sm">삭제</th>
           </tr>
         </thead>
         <tbody>
           {users.map((user) => (
             <tr className="border-b hover:bg-gray-50" key={user.id}>
-              <td className="py-3 px-4">{user.id}</td>
+              <td
+                className={`py-3 px-4 ${user.active ? 'text-red-500' : 'text-gray-500'} cursor-pointer`}
+                onClick={() => onToggle(user.id)}
+              >
+                {user.id}
+              </td>
               <td className="py-3 px-4">{user.first_name}</td>
               <td className="py-3 px-4">{user.last_name}</td>
               <td className="py-3 px-4">{user.gender}</td>
               <td className="py-3 px-4">{user.age}</td>
+              <td>
+                <button
+                  className="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500"
+                  onClick={() => onRemove(user.id)}
+                >
+                  삭제
+                </button>
+              </td>
             </tr>
           ))}
         </tbody>

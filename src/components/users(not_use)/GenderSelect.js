@@ -1,6 +1,6 @@
 // src/GenderSelect.js
 import React, { useEffect, useState } from 'react';
-import '../assets/css/GenderSelect.css';
+import '../../assets/css/GenderSelect.css';
 
 const GenderSelect = ({ reset, setGender }) => {
   const [gender, updateGender] = useState('');
