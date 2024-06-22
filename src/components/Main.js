@@ -19,6 +19,8 @@ const Main = () => {
         <Route path="/inputSample" Component={InputSample} />
         {/* <Route path="/usersList" element={<UserList users={users} />} /> */}
         <Route path="/users" Component={Users} />
+        <Route path="/userList" Component={UsersParent} />
+
         <Route path="/reRendering" Component={ReRendering} />
       </Routes>
     </div>
