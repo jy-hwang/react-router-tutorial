@@ -9,6 +9,7 @@ import Users from './users(not_use)/Users';
 import ReRendering from './ReRendering';
 import UsersParent from './users/UsersParent';
 import Counter from './Counter';
+import ContextSample from './ContextSample';
 
 const Main = () => {
   return (
@@ -23,6 +24,7 @@ const Main = () => {
         <Route path="/userList" Component={UsersParent} />
         <Route path="/reRendering" Component={ReRendering} />
         <Route path="/counter" Component={Counter} />
+        <Route path="/contextSample" Component={ContextSample} />
       </Routes>
     </div>
   );
