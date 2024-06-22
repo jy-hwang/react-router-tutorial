@@ -8,6 +8,7 @@ import InputSample from './InputSample';
 import Users from './users(not_use)/Users';
 import ReRendering from './ReRendering';
 import UsersParent from './users/UsersParent';
+import Counter from './Counter';
 
 const Main = () => {
   return (
@@ -20,8 +21,8 @@ const Main = () => {
         {/* <Route path="/usersList" element={<UserList users={users} />} /> */}
         <Route path="/users" Component={Users} />
         <Route path="/userList" Component={UsersParent} />
-
         <Route path="/reRendering" Component={ReRendering} />
+        <Route path="/counter" Component={Counter} />
       </Routes>
     </div>
   );

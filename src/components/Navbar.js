@@ -23,6 +23,9 @@ const Navbar = () => {
       <Link className="mb-4 hover:underline" to="/userList">
         UserList
       </Link>
+      <Link className="mb-4 hover:underline" to="/counter">
+        Counter
+      </Link>
     </div>
   );
 };
