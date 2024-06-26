@@ -12,6 +12,7 @@ import Counter from './Counter';
 import ContextSample from './ContextSample';
 import ClassHello from './ClassHello';
 import ClassCounter from './ClassCounter';
+import TodoTemplate from './todo-list/TodoTemplate';
 
 const Main = () => {
   return (
@@ -29,6 +30,7 @@ const Main = () => {
         <Route path="/contextSample" Component={ContextSample} />
         <Route path="/classHello" Component={ClassHello} />
         <Route path="/classCounter" Component={ClassCounter} />
+        <Route path="/todolist" Component={TodoTemplate} />
       </Routes>
     </div>
   );

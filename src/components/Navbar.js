@@ -35,6 +35,9 @@ const Navbar = () => {
       <Link className="mb-4 hover:underline" to="/classCounter">
         Class Counter
       </Link>
+      <Link className="mb-4 hover:underline" to="/todolist">
+        Todo-list
+      </Link>
     </div>
   );
 };
