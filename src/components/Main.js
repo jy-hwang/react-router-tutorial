@@ -10,6 +10,8 @@ import ReRendering from './ReRendering';
 import UsersParent from './users/UsersParent';
 import Counter from './Counter';
 import ContextSample from './ContextSample';
+import ClassHello from './ClassHello';
+import ClassCounter from './ClassCounter';
 
 const Main = () => {
   return (
@@ -25,6 +27,8 @@ const Main = () => {
         <Route path="/reRendering" Component={ReRendering} />
         <Route path="/counter" Component={Counter} />
         <Route path="/contextSample" Component={ContextSample} />
+        <Route path="/classHello" Component={ClassHello} />
+        <Route path="/classCounter" Component={ClassCounter} />
       </Routes>
     </div>
   );

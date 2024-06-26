@@ -29,6 +29,12 @@ const Navbar = () => {
       <Link className="mb-4 hover:underline" to="/contextSample">
         ContextSample
       </Link>
+      <Link className="mb-4 hover:underline" to="/classHello">
+        Class Hello
+      </Link>
+      <Link className="mb-4 hover:underline" to="/classCounter">
+        Class Counter
+      </Link>
     </div>
   );
 };
